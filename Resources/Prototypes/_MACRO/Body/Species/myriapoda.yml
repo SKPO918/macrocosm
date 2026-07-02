@@ -1,0 +1,32 @@
+  - type: entity
+    parent: BaseSpeciesAppearance
+    id: AppearanceMyriapoda
+    categories: [ HideSpawnMenu ]
+    name: myriapoda appearance
+    components:
+    - type: InitialBody
+    organs:
+      #Addthese
+  - type: HumanoidProfile
+    species: Myriapoda #idk if this is right
+  
+  - type: entity
+    parent:
+    - AppearanceMyriapoda
+    - BaseSpeciesMobOrganic
+    id: MobMyriapoda
+    name: Urist McLegs
+    components:
+  - type: Inventory
+    displacements:
+    jumpsuit:
+      sizeMaps:
+        32:
+          sprite: #Addthese
+          state: jumpsuit
+    back:
+      sizeMaps:
+        32:
+          sprite: #Addthese
+          state: back
+  

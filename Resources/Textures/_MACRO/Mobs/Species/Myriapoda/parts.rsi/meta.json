@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Skeepo on discord, SKPO918 on github, for Macrocosm/Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "head",
+      "directions": 4
+    },
+     {
+      "name": "torso",
+      "directions": 4
+    }
+  ]
+}
