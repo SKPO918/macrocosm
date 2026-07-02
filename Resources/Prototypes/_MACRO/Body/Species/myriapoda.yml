@@ -6,9 +6,9 @@
     components:
     - type: InitialBody
     organs:
-      #Addthese
+      # TODO: Add These
   - type: HumanoidProfile
-    species: Myriapoda #idk if this is right
+    species: Myriapoda
   
   - type: entity
     parent:
@@ -19,14 +19,132 @@
     components:
   - type: Inventory
     displacements:
-    jumpsuit:
-      sizeMaps:
-        32:
-          sprite: #Addthese
-          state: jumpsuit
-    back:
-      sizeMaps:
-        32:
-          sprite: #Addthese
-          state: back
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: eyes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: head
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: hide
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: hide
+# for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it is
+# also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
   
+  - type: entity
+    parent: OrganBase
+    id: OrganMyriapoda
+    abstract: true
+    suffix: Myriapoda
+
+  - type: entity
+    parent: OrganMyriapoda
+    id: OrganMyriapodaInternal
+    abstract: true
+    components:
+    - type: Sprite
+      sprite: Mobs\Species\Myriapoda\organs.rsi
+
+  - type: entity
+    id: OrganMyriapodaVisual
+    abstract: true
+    components:
+    - type: VisualOrgan
+      data:
+        sprite: Mobs/Species/Myriapoda/parts.rsi
+    - type: VisualOrganMarkings
+      markingData:
+        group: Myriapoda
+
+  - type: entity
+    parent: [ OrganMoth, OrganMyriapodaVisual ]
+    id: OrganMothExternal
+    abstract: true
+    components:
+    - type: Sprite
+      sprite: Mobs/Species/Myriapoda/parts.rsi
+
+  - type: entity
+    parent: [ OrganBaseArmLeft, OrganBaseArmRight, OrganBaseLegLeft, OrganBaseLegRight, OrganBaseFootLeft, OrganBaseFootRight, OrganMyriapodaExternal, OrganBaseHandLeft, OrganBaseHandRight ]
+    id: OrganMyriapodaTorso
+  # Yuuup. They're All Body.
+  # TODO: This might be where you have to add the extra hands
+
+  - type: entity
+    parent: [ OrganBaseHead, OrganMyriapodaExternal ]
+    id: OrganMyriapodaHead
+
+  - type: entity
+    parent: [ OrganBaseArmLeft, OrganBaseArmRight, OrganBaseLegLeft, OrganBaseLegRight, OrganBaseFootLeft, OrganBaseFootRight, OrganMyriapodaExternal, OrganBaseHandLeft, OrganBaseHandRight ]
+    id: OrganMyriapodaTorso
+
+  - type: entity
+    parent: [ OrganBaseBrain, OrganDionaInternal ]
+    id: OrganDionaBrain
+
+# TODO: add a visual organ (like for eyes) for antenna...
+
+  - type: entity
+    parent: [ OrganBaseBrain, OrganMyriapodaInternal ]
+    id: OrganMyriapodaNerve
+    name: ventral nerve
+    description: "A myriapoda's brain. It must lend itself well to long trains of thought..."
+
+  - type: entity
+    parent: [ OrganBaseStomach, OrganMyriapodaInternal ]
+    id: OrganMyriapodaStomach
+    name: digestive tract
+    description: "If you were to stretch this out straight, it would be roughly the same length as the myriapoda you took it from. Who probably wants it back."
+
+  - type: entity
+    parent: [ OrganBaseKidney, OrganMyriapodaInternal ]
+    id: OrganMyriapodaTubules
+    components:
+    - type: Metabolizer
+      maxReagents: 6
+      stages: [ Metabolites ] # If kidneys, appendixes, etc ever get any function, stick those here
+    name: malpighian tubules
+    description: "For such an elaborate name, these don't really spark your interest..."
+
+  - type: entity
+    parent: [ OrganBaseHeart, OrganMyriapodaInternal, OrganHumanMetabolizer ]
+    id: OrganMyriapodaHeart
+    name: tubular heart
+    description: "It turns out you can get away with only having one heartstring if you make it very big."
+
