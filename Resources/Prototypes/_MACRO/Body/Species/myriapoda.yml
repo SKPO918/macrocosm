@@ -9,7 +9,7 @@
       Torso: OrganMyriapodaTorso
       Head: OrganMyriapodaHead
       Brain: OrganMyriapodaNerve
-    #  Eyes: #set upp antenna and do that instead
+      Eyes: OrganMyriapodaAntenna
       Lungs: OrganMyriapodaTubules
       Heart: OrganMyriapodaHeart
       Stomach: OrganMyriapodaStomach
@@ -43,8 +43,8 @@
         group: Myriapoda
 
   - type: entity
-    parent: [ OrganMoth, OrganMyriapodaVisual ]
-    id: OrganMothExternal
+    parent: [ OrganMyriapoda, OrganMyriapodaVisual ]
+    id: OrganMyriapodaExternal
     abstract: true
     components:
     - type: Sprite
@@ -64,19 +64,28 @@
     parent: [ OrganBaseArmLeft, OrganBaseArmRight, OrganBaseLegLeft, OrganBaseLegRight, OrganBaseFootLeft, OrganBaseFootRight, OrganMyriapodaExternal, OrganBaseHandLeft, OrganBaseHandRight ]
     id: OrganMyriapodaTorso
 
-# TODO: add a visual organ (like for eyes) for antenna...
-
+  - type: entity
+    parent: [ OrganMyriapodaVisual, OrganBaseEyes, OrganMyriapodaInternal ]
+    id: OrganMyriapodaAntenna
+    components:
+#    - type: VisualOrgan
+#      data:
+#        sprite: Mobs/Customization/eyes.rsi #TODO: not really sure here
+#        state: Myriapoda
+    name: antenna
+    description: "You could swear they just twitched..."
+  
   - type: entity
     parent: [ OrganBaseBrain, OrganMyriapodaInternal ]
     id: OrganMyriapodaNerve
     name: ventral nerve
-    description: "A myriapoda's brain. It probably lends itself well to long trains of thought..."
+    description: "A myriapoda's brain. Probably well adapted to long trains of thought..."
 
   - type: entity
     parent: [ OrganBaseStomach, OrganMyriapodaInternal ]
     id: OrganMyriapodaStomach
     name: digestive tract
-    description: "If you were to stretch this out straight, it would be roughly the same length as the myriapoda you took it from. Who probably wants it back."
+    description: "If you stretched this out straight, it would be roughly the same length as the myriapoda you took it from. Who probably wants it back."
 
   - type: entity
     parent: [ OrganBaseLiver, OrganMyriapodaInternal ]
@@ -86,13 +95,13 @@
       maxReagents: 6
       stages: [ Metabolites ] # If kidneys, appendixes, etc ever get any function, stick those here
     name: malpighian tubules
-    description: "For such an elaborate name, these don't really spark your interest..."
+    description: "You struggle to see how these fleshy tubules could be anywhere near as complex as their name..."
 
   - type: entity
     parent: [ OrganBaseHeart, OrganMyriapodaInternal, OrganArachnidMetabolizer ]
     id: OrganMyriapodaHeart
     name: tubular heart
-    description: "It turns out you can get away with only having one heartstring if you make it very big."
+    description: "Is it still a heartstring if it's one long string of hearts...?"
 
   - type: entity
     parent: [ OrganBaseLungs, OrganMyriapodaInternal, OrganArachnidMetabolizer ]
@@ -154,6 +163,5 @@
           32:
             sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
             state: hide
-# for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it is
+# for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it's
 # also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
-  
