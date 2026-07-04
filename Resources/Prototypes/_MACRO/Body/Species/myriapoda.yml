@@ -64,7 +64,7 @@
       Stomach: OrganMyriapodaStomach
       Liver: OrganMyriapodaLiver
   - type: HumanoidProfile
-  species: Myriapoda
+    species: Myriapoda
     
 - type: entity
   parent: OrganBase
@@ -165,4 +165,3 @@
   id: MobMyriapoda
   name: Urist McLegs
   components:
-
