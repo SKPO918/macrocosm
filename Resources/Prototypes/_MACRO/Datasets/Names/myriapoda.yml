@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamesMyriapodaFirst
+  values:
+    prefix: names-myriapoda-first-
+    count: 1
+
+- type: localizedDataset
+  id: NamesMyriapodaLast
+  values:
+    prefix: names-myriapoda-last- #TODO: OBVIOUSLY CHANGE THIS WHEN YOU FIGURE OUT A NAMING CONVENTION
+    count: 1

@@ -1,3 +1,55 @@
+  - type: Inventory
+    speciesId: gastropoid #TODO: Change THeseeee
+    templateId: gastropoid #TODO: Change These
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: head
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: eyes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: head
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: hide
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: hide
+# for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it's
+# also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
+
   - type: entity
     parent: BaseSpeciesAppearance
     id: AppearanceMyriapoda
@@ -68,10 +120,10 @@
     parent: [ OrganMyriapodaVisual, OrganBaseEyes, OrganMyriapodaInternal ]
     id: OrganMyriapodaAntenna
     components:
-#    - type: VisualOrgan
-#      data:
-#        sprite: Mobs/Customization/eyes.rsi #TODO: not really sure here
-#        state: Myriapoda
+    - type: VisualOrgan
+      data:
+        sprite: Mobs/Customization/eyes.rsi
+        state: no_eyes
     name: antenna
     description: "You could swear they just twitched..."
   
@@ -101,7 +153,7 @@
     parent: [ OrganBaseHeart, OrganMyriapodaInternal, OrganArachnidMetabolizer ]
     id: OrganMyriapodaHeart
     name: tubular heart
-    description: "Is it still a heartstring if it's one long string of hearts...?"
+    description: "Is it still a heartstring if it's just one long string of hearts...?"
 
   - type: entity
     parent: [ OrganBaseLungs, OrganMyriapodaInternal, OrganArachnidMetabolizer ]
@@ -116,52 +168,4 @@
     id: MobMyriapoda
     name: Urist McLegs
     components:
-  - type: Inventory
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: head
-      neck:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: neck
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: head
-      back:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: back
-      ears:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: ears
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: hide
-      gloves:
-        sizeMaps:
-          32:
-            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: hide
-# for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it's
-# also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
+
