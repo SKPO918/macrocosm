@@ -8,10 +8,19 @@
   },
   "states": [
     {
-      "name": "antenna"
+      "name": "eyeball-l"
+    },
+    {
+      "name": "eyeball-r"
     },
     {
       "name": "brain"
+    },
+    {
+      "name": "brain-inhand-left"
+    },
+    {
+      "name": "brain-inhand-right"
     },
     {
       "name": "heart-off"

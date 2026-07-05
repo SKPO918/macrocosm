@@ -5,6 +5,7 @@
   name: myriapoda appearance
   components:
   - type: Inventory
+    templateId: myriapoda
     displacements:
       jumpsuit:
         sizeMaps:
@@ -57,9 +58,9 @@
     organs:
       Torso: OrganMyriapodaTorso
       Head: OrganMyriapodaHead
-      Brain: OrganMyriapodaNerve
-      Eyes: OrganMyriapodaAntenna
-      Lungs: OrganMyriapodaTubules
+      Brain: OrganMyriapodaBrain
+      Eyes: OrganMyriapodaEyes
+      Lungs: OrganMyriapodaLungs
       Heart: OrganMyriapodaHeart
       Stomach: OrganMyriapodaStomach
       Liver: OrganMyriapodaLiver
@@ -78,7 +79,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs\Species\Myriapoda\organs.rsi
+    sprite: _MACRO/Mobs/Species/Myriapoda/organs.rsi
 
 - type: entity
   id: OrganMyriapodaVisual
@@ -86,10 +87,10 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: Mobs/Species/Myriapoda/parts.rsi
+      sprite: _Macro/Mobs/Species/Myriapoda/parts.rsi
   - type: VisualOrganMarkings
     markingData:
-      group: Myriapoda
+      group: Human #TODO: CHANGE!!
 
 - type: entity
   parent: [ OrganMyriapoda, OrganMyriapodaVisual ]
@@ -97,36 +98,37 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Myriapoda/parts.rsi
+    sprite: _Macro/Mobs/Species/Myriapoda/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganBaseArmRight, OrganBaseLegLeft, OrganBaseLegRight, OrganBaseFootLeft, OrganBaseFootRight, OrganMyriapodaExternal, OrganBaseHandLeft, OrganBaseHandRight ]
+  parent: [ OrganBaseTorso, OrganMyriapodaExternal ]
   id: OrganMyriapodaTorso
-  # Yuuup. They're All Body.
-  # TODO: This might be where you have to add the extra hands?
+  # They're all body
+  components:
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+  
 
 - type: entity
   parent: [ OrganBaseHead, OrganMyriapodaExternal ]
   id: OrganMyriapodaHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganBaseArmRight, OrganBaseLegLeft, OrganBaseLegRight, OrganBaseFootLeft, OrganBaseFootRight, OrganMyriapodaExternal, OrganBaseHandLeft, OrganBaseHandRight ]
-  id: OrganMyriapodaTorso
-
-- type: entity
   parent: [ OrganMyriapodaVisual, OrganBaseEyes, OrganMyriapodaInternal ]
-  id: OrganMyriapodaAntenna
+  id: OrganMyriapodaEyes
   components:
   - type: VisualOrgan
-     data:
+    data:
       sprite: Mobs/Customization/eyes.rsi
       state: no_eyes
   name: antenna
-  description: "You could swear they just twitched..."
+  description: "You swear they just twitched..."
   
 - type: entity
   parent: [ OrganBaseBrain, OrganMyriapodaInternal ]
-  id: OrganMyriapodaNerve
+  id: OrganMyriapodaBrain
   name: ventral nerve
   description: "A myriapoda's brain. Probably well adapted to long trains of thought..."
 
@@ -138,7 +140,7 @@
 
 - type: entity
   parent: [ OrganBaseLiver, OrganMyriapodaInternal ]
-  id: OrganMyriapodaTubules
+  id: OrganMyriapodaLiver
   components:
   - type: Metabolizer
     maxReagents: 6
@@ -154,9 +156,13 @@
 
 - type: entity
   parent: [ OrganBaseLungs, OrganMyriapodaInternal, OrganArachnidMetabolizer ]
-  id: OrganMyriapodaTrachea
+  id: OrganMyriapodaLungs
   name: trachea
   description: "A network of hollow pipes to aid with respiration."
+  components:
+  - type: Sprite
+    layers:
+    - state: lungs
 
 - type: entity
   parent:
@@ -165,3 +171,7 @@
   id: MobMyriapoda
   name: Urist McLegs
   components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatMeatball #meatball until someone makes ant meat
+      amount: 1

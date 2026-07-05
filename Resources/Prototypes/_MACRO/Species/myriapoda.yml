@@ -4,7 +4,7 @@
   roundStart: false
   #randomViable: false
   prototype: MobMyriapoda
-  defaultSkinTone: "#5e3c68"
+  defaultSkinTone: "#f8f8f8"
   dollPrototype: AppearanceMyriapoda
   skinColoration: Hues
   maleFirstNames: NamesMyriapodaFirst
