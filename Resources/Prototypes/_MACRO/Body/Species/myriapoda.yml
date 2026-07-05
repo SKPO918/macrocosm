@@ -6,6 +6,7 @@
   components:
   - type: Inventory
     templateId: myriapoda
+    speciesId: myriapoda
     displacements:
       jumpsuit:
         sizeMaps:
@@ -54,6 +55,17 @@
             state: hide
 # for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it's
 # also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+          state: inhand_right
   - type: InitialBody
     organs:
       Torso: OrganMyriapodaTorso

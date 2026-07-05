@@ -31,11 +31,23 @@
       "directions": 4
     },
     {
+      "name": "belt",
+      "directions": 4
+    },
+    {
       "name": "back",
       "directions": 4
     },
     {
       "name": "ears",
+      "directions": 4
+    },
+    {
+      "name": "inhand_right",
+      "directions": 4
+    },
+    {
+      "name": "inhand_left",
       "directions": 4
     }
   ]
