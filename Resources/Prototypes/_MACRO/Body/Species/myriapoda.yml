@@ -32,7 +32,12 @@
         sizeMaps:
           32:
             sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
-            state: head
+            state: mask
+      belt:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Myriapoda/displacement.rsi
+            state: belt
       back:
         sizeMaps:
           32:
@@ -55,7 +60,44 @@
             state: hide
 # for both shoes and gloves I've elected to simply hide them. While this is justifiable as them having too many arms and legs to see them, it's
 # also due to displacements not taking markings into account - there was no way to get these looking good without it being ugly, and unreadable anyway.
-  - type: Hands
+  
+  - type: Hands #I'd love for these to be inhereted by the torso instead for if surgery ever become real, but I cannot for the life of my get that to work.
+    hands:
+      right_hand:
+        location: Right
+      extra_hand_1:
+        location: Middle
+      extra_hand_2:
+        location: Middle
+      extra_hand_3:
+        location: Middle
+      extra_hand_4:
+        location: Middle
+      extra_hand_5:
+        location: Middle
+      extra_hand_6:
+        location: Middle
+      extra_hand_7:
+        location: Middle
+      extra_hand_8:
+        location: Middle
+      extra_hand_9:
+        location: Middle
+      extra_hand_10:
+        location: Middle
+    sortedHands:
+    - right_hand
+    - extra_hand_1
+    - extra_hand_2
+    - extra_hand_3
+    - extra_hand_4
+    - extra_hand_5
+    - extra_hand_6
+    - extra_hand_7
+    - extra_hand_8
+    - extra_hand_9
+    - extra_hand_10
+    
     leftHandDisplacement:
       sizeMaps:
         32:
